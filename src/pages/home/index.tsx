@@ -2,6 +2,7 @@ import Image from "next/image";
 import Asset, { AssetType } from "~/components/asset";
 import Header from "~/components/header";
 import Miner, { MinerType } from "~/components/miner";
+import Link from "next/link";
 
 const miners = [
   {
@@ -76,11 +77,19 @@ export default function Home() {
         <Header />
         <div className="flex w-full justify-center border-t-[0.4px] border-solid border-white border-opacity-70 font-poppins text-white">
           <div className="flex w-[1440px] flex-col items-center justify-start">
-            <div className="mt-14 text-[40px]">Rune Miner</div>
+            <div className="mt-14 flex w-full items-center justify-between">
+              <Link href="/">
+                <button className="h-10 w-[108px] rounded-[20px] bg-[#CA540F]">
+                  Home
+                </button>
+              </Link>
+              <div className="text-[40px]">Rune Miner</div>
+              <div></div>
+            </div>
             <div className="mt-4 text-[18px]">
               For Mother Cluckers, By Mother Cluckers
             </div>
-            <div className="mt-10 flex items-center justify-between gap-8">
+            <div className="mt-10 flex w-full items-center justify-between">
               <div className="flex h-[380px] w-[705px] justify-between rounded-xl bg-[#1E1E1E] p-8">
                 <div className="flex h-full items-center justify-center">
                   <div className="h-[246px] w-[246px] rounded-full bg-[#333333]"></div>
@@ -132,7 +141,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-14 text-[40px]">Your Assets</div>
-            <div className="mt-4 flex items-center justify-center gap-2">
+            <div className="mt-4 flex w-full items-center justify-between">
               {assets.map((asset: AssetType) => {
                 return (
                   <>
@@ -146,7 +155,7 @@ export default function Home() {
                 );
               })}
             </div>
-            <div className="m-14 flex w-[1410px] items-center justify-end">
+            <div className="m-14 flex w-full items-center justify-end">
               <div className="flex justify-between gap-2">
                 <Image
                   src="/assets/images/icon-internet.svg"
