@@ -78,7 +78,7 @@ const assets = [
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen w-[1920p] bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
+      <div className="min-h-screen bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
         <Header />
         <div className="flex w-full justify-center border-t-[0.4px] border-solid border-white border-opacity-70 font-poppins text-white">
           <div className="flex w-[1440px] flex-col items-center justify-start">

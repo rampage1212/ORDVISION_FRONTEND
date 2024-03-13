@@ -4,7 +4,7 @@ import Header from "~/components/header";
 export default function Dashboard() {
   return (
     <>
-      <div className="min-h-screen w-[1920p] bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
+      <div className="min-h-screen bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
         <Header />
         <div className="absolute top-[261px] flex w-full flex-col items-center justify-start">
           <div className="text-4xl text-white">Enter your eligible address</div>
