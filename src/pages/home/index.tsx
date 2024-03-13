@@ -6,30 +6,35 @@ import Link from "next/link";
 
 const miners = [
   {
+    image: "/assets/images/miner-icon.svg",
     address: "bc1pwcpl6r14s....96z93mau3qql8xlp",
     name: "Clucker",
     count: "1",
     amount: "10,000",
   },
   {
+    image: "/assets/images/miner-icon.svg",
     address: "bc1pwcpl6r14s....96z93mau3qql8xlp",
     name: "Clucker",
     count: "1",
     amount: "10,000",
   },
   {
+    image: "/assets/images/miner-icon.svg",
     address: "bc1pwcpl6r14s....96z93mau3qql8xlp",
     name: "Clucker",
     count: "1",
     amount: "10,000",
   },
   {
+    image: "/assets/images/miner-icon.svg",
     address: "bc1pwcpl6r14s....96z93mau3qql8xlp",
     name: "Clucker",
     count: "1",
     amount: "10,000",
   },
   {
+    image: "/assets/images/miner-icon.svg",
     address: "bc1pwcpl6r14s....96z93mau3qql8xlp",
     name: "Clucker",
     count: "1",
@@ -124,11 +129,12 @@ export default function Home() {
               </div>
               <div className="flex h-[380px] w-[705px] flex-col justify-start gap-2 rounded-xl bg-[#1E1E1E] p-8">
                 <div className="flex justify-end text-[32px]">Top Miners</div>
-                <div className="flex flex-col justify-start gap-1">
+                <div className="flex flex-col justify-start gap-2">
                   {miners.map((miner: MinerType) => {
                     return (
                       <>
                         <Miner
+                          image={miner.image}
                           address={miner.address}
                           name={miner.name}
                           count={miner.count}
