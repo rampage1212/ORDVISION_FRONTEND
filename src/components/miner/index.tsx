@@ -16,7 +16,7 @@ export default function Miner({
 }: MinerType) {
   return (
     <>
-      <div className="flex h-[47px] cursor-pointer items-center justify-between rounded-[5px] bg-[#333333] pl-2 pr-4">
+      <div className="flex h-[47px] transform cursor-pointer items-center justify-between rounded-[5px] bg-[#333333] pl-2 pr-4 transition duration-300 ease-in-out hover:scale-x-105 hover:scale-y-110">
         <Image
           src={image}
           width={38}

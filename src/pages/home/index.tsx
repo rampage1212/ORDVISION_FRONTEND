@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Asset, { AssetType } from "~/components/asset";
 import Header from "~/components/header";
@@ -76,6 +77,11 @@ const assets = [
 ];
 
 export default function Home() {
+  const [startAnimation, setStartAnimation] = useState(false);
+
+  useEffect(() => {
+    setStartAnimation(true);
+  }, []);
   return (
     <>
       <div className="min-h-screen bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
@@ -84,7 +90,7 @@ export default function Home() {
           <div className="flex w-[1440px] flex-col items-center justify-start">
             <div className="mt-14 flex w-full items-center justify-between">
               <Link href="/">
-                <button className="h-10 w-[108px] rounded-[20px] bg-[#CA540F]">
+                <button className="h-10 w-[108px] transform rounded-[20px] bg-[#CA540F] transition duration-300 ease-in-out hover:scale-110">
                   Home
                 </button>
               </Link>
@@ -94,7 +100,9 @@ export default function Home() {
             <div className="mt-4 text-[18px]">
               For Mother Cluckers, By Mother Cluckers
             </div>
-            <div className="mt-10 flex w-full items-center justify-between">
+            <div
+              className={`mt-10 flex w-full items-center justify-between ${startAnimation ? "animate-slide-up" : ""}`}
+            >
               <div className="flex h-[380px] w-[705px] justify-between rounded-xl bg-[#1E1E1E] p-8">
                 <div className="flex h-full items-center justify-center">
                   <div className="h-[246px] w-[246px] rounded-full bg-[#333333]"></div>
@@ -174,21 +182,21 @@ export default function Home() {
                   width={30}
                   height={30}
                   alt="internet"
-                  className="cursor-pointer"
+                  className="transform cursor-pointer transition duration-300 ease-in-out hover:scale-125"
                 />
                 <Image
                   src="/assets/images/icon-x.svg"
                   width={30}
                   height={30}
                   alt="x"
-                  className="cursor-pointer"
+                  className="transform cursor-pointer transition duration-300 ease-in-out hover:scale-125"
                 />
                 <Image
                   src="/assets/images/icon-discord.svg"
                   width={30}
                   height={30}
                   alt="discord"
-                  className="cursor-pointer"
+                  className="transform cursor-pointer transition duration-300 ease-in-out hover:scale-125"
                 />
               </div>
             </div>
