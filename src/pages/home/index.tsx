@@ -103,10 +103,16 @@ export default function Home() {
                   <div className="flex justify-end text-[32px]">
                     Token Stats
                   </div>
-                  <div className="mt-2 flex flex-col gap-1">
+                  <div className="mt-2 flex flex-col gap-3">
                     <div className="flex justify-between text-[20px]">
                       <div>Total Mined:</div>
                       <div>1320</div>
+                    </div>
+                    <div className="flex justify-between text-[20px]">
+                      <div className="w-[209px]">
+                        Remaining mineable balance:
+                      </div>
+                      <div></div>
                     </div>
                     <div className="flex justify-between text-[20px]">
                       <div>Total Supply:</div>
