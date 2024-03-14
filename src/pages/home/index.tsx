@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Asset, { AssetType } from "~/components/asset";
+import Asset, { type AssetType } from "~/components/asset";
 import Header from "~/components/header";
-import Miner, { MinerType } from "~/components/miner";
+import Miner, { type MinerType } from "~/components/miner";
 import Link from "next/link";
 
 const miners = [
