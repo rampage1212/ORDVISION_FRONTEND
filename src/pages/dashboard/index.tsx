@@ -7,9 +7,14 @@ export default function Dashboard() {
       <div className="min-h-screen bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
         <Header />
         <div className="absolute top-[261px] flex w-full flex-col items-center justify-start">
-          <div className="text-4xl text-white">Enter your eligible address</div>
+          <div className="text-[40px] text-white">
+            Mother Clucking Mining Checker
+          </div>
+          <div className="mt-8 text-[32px] text-white">
+            Enter your eligible address
+          </div>
           <input
-            className="mt-16 h-[89px] w-[770px] rounded-full bg-white	 px-10 text-2xl text-[#1E1E1E] placeholder-[#1E1E1E] outline-none"
+            className="mt-4 h-[89px] w-[770px] rounded-full bg-white	 px-10 text-2xl text-[#1E1E1E] placeholder-[#1E1E1E] outline-none"
             placeholder="Enter ordinals address"
           ></input>
           <div className="mt-96 flex w-[1440px] items-center justify-end">
