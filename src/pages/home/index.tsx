@@ -89,7 +89,7 @@ export default function Home() {
                 </button>
               </Link>
               <div className="text-[40px]">Rune Miner</div>
-              <div></div>
+              <div className="w-[108px]"></div>
             </div>
             <div className="mt-4 text-[18px]">
               For Mother Cluckers, By Mother Cluckers
