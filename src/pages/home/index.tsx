@@ -78,6 +78,7 @@ const assets = [
 
 export default function Home() {
   const [startAnimation, setStartAnimation] = useState(false);
+  const [activateMining, setActivateMining] = useState(false);
 
   useEffect(() => {
     setStartAnimation(true);
@@ -97,11 +98,16 @@ export default function Home() {
                 </div>
               </Link>
               <div className="text-[40px]">Rune Miner</div>
-              <Link href="/home">
-                <button className="h-10 w-[270px] transform rounded-[20px] bg-[#CA540F] transition duration-300 ease-in-out hover:scale-110">
-                  Activate Mother Clucking Mining
-                </button>
-              </Link>
+              <div className="w-[270px]">
+                {!activateMining && (
+                  <button
+                    className="h-10 w-full transform rounded-[20px] bg-[#CA540F] transition duration-300 ease-in-out hover:scale-110"
+                    onClick={() => setActivateMining(true)}
+                  >
+                    Activate Mother Clucking Mining
+                  </button>
+                )}
+              </div>
             </div>
             <div className="mt-4 text-[18px]">
               For Mother Cluckers, By Mother Cluckers
