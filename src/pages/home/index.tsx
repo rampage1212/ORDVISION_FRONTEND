@@ -90,12 +90,18 @@ export default function Home() {
           <div className="flex w-[1440px] flex-col items-center justify-start">
             <div className="mt-14 flex w-full items-center justify-between">
               <Link href="/">
-                <button className="h-10 w-[108px] transform rounded-[20px] bg-[#CA540F] transition duration-300 ease-in-out hover:scale-110">
-                  Home
-                </button>
+                <div className="w-[270px]">
+                  <button className="h-10 w-[108px] transform rounded-[20px] bg-[#CA540F] transition duration-300 ease-in-out hover:scale-110">
+                    Home
+                  </button>
+                </div>
               </Link>
               <div className="text-[40px]">Rune Miner</div>
-              <div className="w-[108px]"></div>
+              <Link href="/home">
+                <button className="h-10 w-[270px] transform rounded-[20px] bg-[#CA540F] transition duration-300 ease-in-out hover:scale-110">
+                  Activate Mother Clucking Mining
+                </button>
+              </Link>
             </div>
             <div className="mt-4 text-[18px]">
               For Mother Cluckers, By Mother Cluckers
