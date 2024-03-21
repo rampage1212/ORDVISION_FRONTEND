@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 import Asset, { type AssetType } from "~/components/asset";
 import Header from "~/components/header";
 import Miner, { type MinerType } from "~/components/miner";
 import Link from "next/link";
+
+const runeBackendBaseAPI =
+  "https://rune-backend-production.up.railway.app/api/v1/";
 
 const miners = [
   {
@@ -78,7 +84,47 @@ const assets = [
 
 export default function Home() {
   const [startAnimation, setStartAnimation] = useState(false);
-  const [activateMining, setActivateMining] = useState(false);
+  const [remainingBalance, setRemainingBalance] = useState("0");
+  const router = useRouter();
+
+  const ActivateMining = async () => {
+    const { address } = router.query;
+    if (address) {
+      await fetch(`${runeBackendBaseAPI}transaction/ative`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          address,
+        }),
+      })
+        .then(() => {
+          toast.success("Successfully actived this address.");
+        })
+        .catch(() => {
+          toast.error("Error active address");
+        });
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { address } = router.query;
+
+      if (address)
+        await fetch(
+          `${runeBackendBaseAPI}transaction/point?address=${String(address)}`,
+        )
+          .then(async (res) => {
+            setRemainingBalance(String(await res.json()));
+          })
+          .catch(() => {
+            console.error("Error fetching data");
+          });
+    };
+    void fetchData();
+  }, [router]);
 
   useEffect(() => {
     setStartAnimation(true);
@@ -86,6 +132,7 @@ export default function Home() {
   return (
     <>
       <div className="min-h-screen bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
+        <ToastContainer />
         <Header />
         <div className="flex w-full justify-center border-t-[0.4px] border-solid border-white border-opacity-70 font-poppins text-white">
           <div className="flex w-[1440px] flex-col items-center justify-start">
@@ -99,14 +146,12 @@ export default function Home() {
               </Link>
               <div className="text-[40px]">Rune Miner</div>
               <div className="w-[270px]">
-                {!activateMining && (
-                  <button
-                    className="h-10 w-full transform rounded-[20px] bg-[#CA540F] transition duration-300 ease-in-out hover:scale-110"
-                    onClick={() => setActivateMining(true)}
-                  >
-                    Activate Mother Clucking Mining
-                  </button>
-                )}
+                <button
+                  className="h-10 w-full transform rounded-[20px] bg-[#CA540F] transition duration-300 ease-in-out hover:scale-110"
+                  onClick={() => ActivateMining()}
+                >
+                  Activate Mother Clucking Mining
+                </button>
               </div>
             </div>
             <div className="mt-4 text-[18px]">
@@ -126,13 +171,13 @@ export default function Home() {
                   <div className="mt-2 flex flex-col gap-3">
                     <div className="flex justify-between text-[20px]">
                       <div>Total Mined:</div>
-                      <div>1320</div>
+                      <div>0</div>
                     </div>
                     <div className="flex justify-between text-[20px]">
                       <div className="w-[209px]">
                         Remaining mineable balance:
                       </div>
-                      <div></div>
+                      <div>{remainingBalance}</div>
                     </div>
                     <div className="flex justify-between text-[20px]">
                       <div>Total Supply:</div>
@@ -156,7 +201,7 @@ export default function Home() {
               <div className="flex h-[380px] w-[705px] flex-col justify-start gap-2 rounded-xl bg-[#1E1E1E] p-8">
                 <div className="flex justify-end text-[32px]">Top Miners</div>
                 <div className="flex flex-col justify-start gap-2">
-                  {miners.map((miner: MinerType) => {
+                  {/* {miners.map((miner: MinerType) => {
                     return (
                       <>
                         <Miner
@@ -168,13 +213,13 @@ export default function Home() {
                         />
                       </>
                     );
-                  })}
+                  })} */}
                 </div>
               </div>
             </div>
             <div className="mt-14 text-[40px]">Your Assets</div>
             <div className="mt-4 flex w-full items-center justify-between">
-              {assets.map((asset: AssetType) => {
+              {/* {assets.map((asset: AssetType) => {
                 return (
                   <>
                     <Asset
@@ -185,7 +230,7 @@ export default function Home() {
                     />
                   </>
                 );
-              })}
+              })} */}
             </div>
             <div className="m-14 flex w-full items-center justify-end">
               <div className="flex justify-between gap-2">

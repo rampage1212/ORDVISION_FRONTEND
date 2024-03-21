@@ -1,9 +1,28 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Header from "~/components/header";
 
 export default function Dashboard() {
   const [startAnimation, setStartAnimation] = useState(false);
+  const [address, setAddress] = useState<string>("");
+  const router = useRouter();
+
+  const handleKeyPress = (
+    event: React.KeyboardEvent<HTMLInputElement>,
+  ): void => {
+    if (event.key === "Enter") {
+      // Call your function to handle the Enter key press here
+      handleEnterKeyPress();
+    }
+  };
+
+  const handleEnterKeyPress = (): void => {
+    // Your logic to handle the Enter key press goes here
+    console.log("Enter key pressed!", address);
+    // Navigate to another page with address as parameter
+    router.push(`/home?address=${address}`);
+  };
 
   useEffect(() => {
     setStartAnimation(true);
@@ -24,6 +43,8 @@ export default function Dashboard() {
           <input
             className="mt-4 h-[89px] w-[770px] rounded-full bg-white	 px-10 text-2xl text-[#1E1E1E] placeholder-[#1E1E1E] outline-none"
             placeholder="Enter ordinals address"
+            onChange={(e) => setAddress(e.target.value)}
+            onKeyPress={handleKeyPress}
           ></input>
         </div>
         <div className="absolute bottom-28 flex w-[1440px] items-center justify-end">
