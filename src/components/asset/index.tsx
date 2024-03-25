@@ -48,7 +48,7 @@ export default function Asset({ inscriptionId, sum, contentType }: AssetType) {
             <div>{TOTAL_BALANCE}</div>
           </div>
           <div className="flex w-full items-center justify-between">
-            <div>Mineable balance:</div>
+            <div>Mined balance:</div>
             <div>{sum}</div>
           </div>
           <div>
