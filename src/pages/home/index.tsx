@@ -72,10 +72,10 @@ export default function Home() {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
-          toast.success("Successfully actived this address.");
+          toast.success("Successfully activated this address.");
         })
         .catch(() => {
-          toast.error("Error active address");
+          toast.error("Error activated address");
         });
     }
   };
