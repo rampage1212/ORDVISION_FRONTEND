@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import Header from "~/components/header";
+import Footer from "~/components/footer";
 
 export default function Dashboard() {
   const [startAnimation, setStartAnimation] = useState(false);
@@ -29,48 +29,26 @@ export default function Dashboard() {
   }, []);
   return (
     <>
-      <div className="min-h-screen bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
+      <div className="min-h-screen w-full bg-[url('/assets/images/background-1.svg')] bg-cover font-poppins">
         <Header />
         <div
           className={`absolute top-[261px] flex w-full flex-col items-center justify-start ${startAnimation ? "animate-slide-up" : ""}`}
         >
-          <div className="text-[40px] text-white">
+          <div className="text-[24px] text-white lg:text-[40px]">
             Mother Clucking Mining Checker
           </div>
-          <div className="mt-8 text-[32px] text-white">
+          <div className="mt-8 text-[22px] text-white lg:text-[32px]">
             Enter your eligible address
           </div>
           <input
-            className="mt-4 h-[89px] w-[770px] rounded-full bg-white	 px-10 text-2xl text-[#1E1E1E] placeholder-[#1E1E1E] outline-none"
+            className="mt-12 h-[89px] rounded-full bg-white px-10 text-2xl text-[#1E1E1E] placeholder-[#1E1E1E] outline-none lg:mt-4 lg:w-[600px] xl:w-[770px]"
             placeholder="Enter ordinals address"
             onChange={(e) => setAddress(e.target.value)}
             onKeyPress={handleKeyPress}
           ></input>
         </div>
-        <div className="absolute bottom-28 flex w-[1440px] items-center justify-end">
-          <div className="flex justify-between gap-2">
-            <Image
-              src="/assets/images/icon-internet.svg"
-              width={30}
-              height={30}
-              alt="internet"
-              className="transform cursor-pointer transition duration-300 ease-in-out hover:scale-125"
-            />
-            <Image
-              src="/assets/images/icon-x.svg"
-              width={30}
-              height={30}
-              alt="x"
-              className="transform cursor-pointer transition duration-300 ease-in-out hover:scale-125"
-            />
-            <Image
-              src="/assets/images/icon-discord.svg"
-              width={30}
-              height={30}
-              alt="discord"
-              className="transform cursor-pointer transition duration-300 ease-in-out hover:scale-125"
-            />
-          </div>
+        <div className="absolute bottom-28 flex w-full items-center justify-end px-4 md:px-16 lg:px-32 xl:px-64 2xl:px-96">
+          <Footer />
         </div>
       </div>
     </>

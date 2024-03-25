@@ -17,6 +17,19 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+
+  output: "standalone",
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ordinals.com",
+        port: "",
+        pathname: "/content/**",
+      },
+    ],
+  },
 };
 
 export default config;
